@@ -21,25 +21,26 @@ function getCurrentWeekDays() {
     return weekDays;
 }
 
-const monday = [];
-const tuesday = [];
-const wednesday = [];
-const thursday = [];
-const friday = [];
+const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const subjects = {};
+
 let days = getCurrentWeekDays()
 
 let from = days[0]
 let to = days[4]
-const subjects = [monday, tuesday, wednesday, thursday, friday];
+
 journal.authorize(login,password).then(async function(){
     journal.calendar.getTimetable(from, to).then((data) => {
-        for(let i = 1; i<=9; i++){
-            if(data.table.Monday[i]){
-                monday.push(data.table.Monday[i].title)
-            }else{
-                monday.push(data.table.Monday[i])
+        week.forEach(day => {
+            subjects[day.toLowerCase()] = [];
+            for(let i = 1; i <= 9; i++) {
+                if (data.table[day][i]) {
+                    subjects[day.toLowerCase()].push(data.table[day][i].title);
+                } else {
+                    subjects[day.toLowerCase()].push(data.table[day][i]);
+                }
             }
-        }
+        });
         console.log(subjects)
 
     })
