@@ -2,8 +2,8 @@ const Librus = require("librus-api")
 
 let journal = new Librus();
 
-let login = "9336680u";
-let password = "Aureola12122006";
+let login = "";
+let password = "";
 
 function getCurrentWeekDays() {
     const today = new Date();
