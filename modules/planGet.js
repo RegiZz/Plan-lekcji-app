@@ -18,7 +18,7 @@ function sleep(ms) {
 journal.authorize(login,password).then(async function(){
     journal.calendar.getTimetable(from, to).then((data) => {
         for(let i = 1; i<=9; i++){
-            if(data.table.Monday[i] !== null){
+            if(data.table.Monday[i]){
                 
                 subjects.push(data.table.Monday[i].title)
             }
