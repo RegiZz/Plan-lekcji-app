@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "5c6108c2-a624-42eb-8e72-5232237b5761"
+      }
+    },
+    "android": {
+      "package": "com.regizz.planlekcjiapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.regizz.planlekcjiapp"
+    }
+  }
+}
