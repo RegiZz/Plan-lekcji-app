@@ -33,6 +33,13 @@ const App = () => {
 );
 };
 
+const styles = StyleSheet.create({
+  main:{
+    backgroundColor: '#01040f',
+    color: '#3d02b3'
+  }
+})
+
 export default App;
 
 module.exports = {
