@@ -1,9 +1,10 @@
 const Librus = require("librus-api")
+const frontApp = require("../index")
 
 let journal = new Librus();
 
-let login = "";
-let password = "";
+let login = frontApp.Login;
+let password = frontApp.Password;
 
 function getCurrentWeekDays() {
     const today = new Date();
@@ -45,3 +46,9 @@ journal.authorize(login,password).then(async function(){
 
     })
 })
+
+module.exports = {
+    Subjects: subjects,
+    Login: login,
+    Password: password,
+}
