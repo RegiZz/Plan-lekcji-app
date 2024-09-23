@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "expo": "^51.0.32",
     "librus-api": "^2.11.0"
   }
 }
