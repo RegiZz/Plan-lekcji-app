@@ -1,10 +1,6 @@
 const Librus = require("librus-api")
-const frontApp = require("../index")
 
 let journal = new Librus();
-
-let login = frontApp.Login;
-let password = frontApp.Password;
 
 function getCurrentWeekDays() {
     const today = new Date();
@@ -30,25 +26,28 @@ let days = getCurrentWeekDays()
 let from = days[0]
 let to = days[4]
 
-journal.authorize(login,password).then(async function(){
-    journal.calendar.getTimetable(from, to).then((data) => {
-        week.forEach(day => {
-            subjects[day.toLowerCase()] = [];
-            for(let i = 1; i <= 9; i++) {
-                if (data.table[day][i]) {
-                    subjects[day.toLowerCase()].push(data.table[day][i].title);
-                } else {
-                    subjects[day.toLowerCase()].push(data.table[day][i]);
+function authorizeLibrus(login, password){
+    journal.authorize(login,password).then(async function(){
+        journal.calendar.getTimetable(from, to).then((data) => {
+            week.forEach(day => {
+                subjects[day.toLowerCase()] = [];
+                for(let i = 1; i <= 9; i++) {
+                    if (data.table[day][i]) {
+                        subjects[day.toLowerCase()].push(data.table[day][i].title);
+                    } else {
+                        subjects[day.toLowerCase()].push(data.table[day][i]);
+                    }
                 }
-            }
-        });
-        console.log(subjects)
+            });
+            
 
+        })
     })
-})
+}
 
 module.exports = {
     Subjects: subjects,
     Login: login,
     Password: password,
+    authorizeLibrus,
 }
