@@ -47,7 +47,5 @@ function authorizeLibrus(login, password){
 
 module.exports = {
     Subjects: subjects,
-    Login: login,
-    Password: password,
     authorizeLibrus,
 }

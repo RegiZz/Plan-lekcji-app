@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-native';
-import { Subjects, Login, Password, authorizeLibrus } from "./modules/planGet.js";
+import { Subjects, authorizeLibrus } from "./modules/planGet.js";
 
 let login
 let password
@@ -61,8 +61,3 @@ const styles = StyleSheet.create({
 })
 
 export default App;
-
-module.exports = {
-  Login: login,
-  Password: password,
-}
