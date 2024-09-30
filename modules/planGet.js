@@ -27,22 +27,28 @@ let from = days[0]
 let to = days[4]
 
 function authorizeLibrus(login, password){
-    journal.authorize(login,password).then(async function(){
-        journal.calendar.getTimetable(from, to).then((data) => {
-            week.forEach(day => {
-                subjects[day.toLowerCase()] = [];
-                for(let i = 1; i <= 9; i++) {
-                    if (data.table[day][i]) {
-                        subjects[day.toLowerCase()].push(data.table[day][i].title);
-                    } else {
-                        subjects[day.toLowerCase()].push(data.table[day][i]);
+    if(journal.authorize(login,password)){
+        journal.authorize(login,password).then(async function(){
+            journal.calendar.getTimetable(from, to).then((data) => {
+                week.forEach(day => {
+                    subjects[day.toLowerCase()] = [];
+                    for(let i = 1; i <= 9; i++) {
+                        if (data.table[day][i]) {
+                            subjects[day.toLowerCase()].push(data.table[day][i].title);
+                        } else {
+                            subjects[day.toLowerCase()].push(data.table[day][i]);
+                        }
                     }
-                }
-            });
-            
+                });
+                
 
+            })
         })
-    })
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 module.exports = {
