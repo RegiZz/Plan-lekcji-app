@@ -1,6 +1,17 @@
 {
   "dependencies": {
     "expo": "^51.0.32",
-    "librus-api": "^2.11.0"
+    "librus-api": "^2.11.0",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "react-dom": "18.2.0",
+    "react-native-web": "~0.19.10",
+    "@expo/metro-runtime": "~3.2.3"
+  },
+  "name": "PlanLekcjiApp",
+  "version": "1.0.0",
+  "scripts": {
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   }
 }
