@@ -51,7 +51,7 @@ function loginScreen({navigation}){
 function mainScreen(){
   return(
     <View style={styles.main}>
-      
+      <Text>{subjects.Monday}</Text> 
     </View>
   );
 }

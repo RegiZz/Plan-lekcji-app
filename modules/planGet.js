@@ -35,10 +35,25 @@ function authorizeLibrus(login, password){
                     for(let i = 1; i <= 9; i++) {
                         if (data.table[day][i]) {
                             subjects[day.toLowerCase()].push(data.table[day][i].title);
+                            
                         } else {
                             subjects[day.toLowerCase()].push(data.table[day][i]);
                         }
                     }
+
+                    for(let key in subjects){
+                        if(subjects[key]){
+                            subjects[key] = subjects[key].map(element => {
+                                if (element !== null) {
+                                    return element.split("-")[0]
+                                } else {
+                                    return element
+                                }
+                            })
+                        }
+                    }
+
+                    console.log(subjects)
                 });
                 
 
